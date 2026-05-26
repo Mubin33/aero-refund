@@ -1,11 +1,10 @@
- 
-import HomePage from '@/components/_ui/home'
+import FormPage from '@/components/_ui/form'
 import React from 'react'
 
 export default function page() {
   return (
-    <div> 
-      <HomePage/>
+    <div>
+        <FormPage />
     </div>
   )
 }
