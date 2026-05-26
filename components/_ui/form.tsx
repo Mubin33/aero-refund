@@ -1,5 +1,6 @@
 'use client'
 import React, { useState, useRef } from 'react';
+import { Navbar } from "@/components/shared/Navbar";
 
 // --- DATABASE SIMULATION CONSTANTS ---
 const MOCK_AIRPORTS = [
@@ -399,51 +400,52 @@ export default function FormPage({ showToast = () => {}, currentAirport = MOCK_A
     <div className="max-w-7xl mx-auto px-4 md:px-6 py-6 space-y-6">
       
       {/* DBML SCHEMA INSPECTOR TOGGLE ROW */}
-      <div className="bg-slate-900 text-slate-300 px-5 py-3 rounded-xl border border-slate-800 flex justify-between items-center text-xs select-none">
+      {/* <div className="bg-white text-gray-900 px-5 py-3 rounded-lg border border-gray-300 flex justify-between items-center text-xs select-none">
         <span className="flex items-center gap-2">
           <Icons.Database />
           <span>Active relational DB mapping: Postgres DBML Schema</span>
         </span>
         <button
           onClick={() => setShowDbmlInspector(!showDbmlInspector)}
-          className="bg-slate-800 hover:bg-slate-700 text-white font-bold px-3 py-1.5 rounded transition-all"
+          className="bg-gray-100 hover:bg-gray-200 text-gray-900 font-bold px-3 py-1.5 rounded transition-all"
         >
           {showDbmlInspector ? "✕ Hide DBML Inspector" : "⚡ Show DBML Inspector"}
         </button>
-      </div>
+      </div> */}
 
+<Navbar />
       {/* LIVE DBML SCHEMATICS PANEL */}
       {showDbmlInspector && (
-        <div className="bg-slate-950 border border-slate-800 text-slate-300 p-6 rounded-2xl grid grid-cols-1 md:grid-cols-3 gap-6 font-mono text-[11px] animate-scale-up select-none">
-          <div className="bg-slate-900/60 p-4 rounded-xl border border-slate-800 space-y-2">
-            <span className="text-amber-400 font-bold block">Table: passengers ⇄ oecs</span>
-            <p className="text-slate-400">One passenger has one or more Overseas Employment Certificates.</p>
-            <div className="text-[10px] space-y-1 text-slate-300">
-              <div className="flex justify-between"><span>passport_number</span> <span className="text-blue-400">VARCHAR [Unique]</span></div>
-              <div className="flex justify-between"><span>status</span> <span className="text-amber-500">active | used | expired</span></div>
-              <div className="flex justify-between"><span>job_site</span> <span className="text-blue-400">VARCHAR</span></div>
+        <div className="bg-white border border-gray-300 text-gray-900 p-6 rounded-xl grid grid-cols-1 md:grid-cols-3 gap-6 font-mono text-[11px] animate-scale-up select-none">
+          <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 space-y-2">
+            <span className="text-[#F2B124] font-bold block">Table: passengers ⇄ oecs</span>
+            <p className="text-gray-600">One passenger has one or more Overseas Employment Certificates.</p>
+            <div className="text-[10px] space-y-1 text-gray-700">
+              <div className="flex justify-between"><span>passport_number</span> <span className="text-[#F2B124]">VARCHAR [Unique]</span></div>
+              <div className="flex justify-between"><span>status</span> <span className="text-[#F2B124]">active | used | expired</span></div>
+              <div className="flex justify-between"><span>job_site</span> <span className="text-[#F2B124]">VARCHAR</span></div>
             </div>
           </div>
           
-          <div className="bg-slate-900/60 p-4 rounded-xl border border-slate-800 space-y-2">
-            <span className="text-amber-400 font-bold block">Table: refund_transactions</span>
-            <p className="text-slate-400">Maps flight and disbursement financials exactly to active terminals.</p>
-            <div className="text-[10px] space-y-1 text-slate-300">
-              <div className="flex justify-between"><span>transaction_no</span> <span className="text-blue-400">VARCHAR [Unique]</span></div>
-              <div className="flex justify-between"><span>refund_amount</span> <span className="text-amber-500">DECIMAL (e.g. {currentAirport.default_refund_amount})</span></div>
-              <div className="flex justify-between"><span>processed_by</span> <span className="text-green-400">USER_ID: {currentUser.id}</span></div>
+          <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 space-y-2">
+            <span className="text-[#F2B124] font-bold block">Table: refund_transactions</span>
+            <p className="text-gray-600">Maps flight and disbursement financials exactly to active terminals.</p>
+            <div className="text-[10px] space-y-1 text-gray-700">
+              <div className="flex justify-between"><span>transaction_no</span> <span className="text-[#F2B124]">VARCHAR [Unique]</span></div>
+              <div className="flex justify-between"><span>refund_amount</span> <span className="text-[#F2B124]">DECIMAL (e.g. {currentAirport.default_refund_amount})</span></div>
+              <div className="flex justify-between"><span>processed_by</span> <span className="text-[#F2B124]">USER_ID: {currentUser.id}</span></div>
             </div>
           </div>
 
-          <div className="bg-slate-900/60 p-4 rounded-xl border border-slate-800 space-y-2">
-            <span className="text-blue-400 font-bold block">Current Session Meta Context</span>
-            <div className="space-y-1.5 text-xs text-slate-200">
-              <div>Airport: <strong className="text-white">{currentAirport.name} ({currentAirport.terminal_code})</strong></div>
-              <div>Default Rate: <strong className="text-amber-400">{currentAirport.default_refund_amount} PHP</strong></div>
-              <div>Active Operator: <strong className="text-white">{currentUser.full_name}</strong></div>
+          <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 space-y-2">
+            <span className="text-[#F2B124] font-bold block">Current Session Meta Context</span>
+            <div className="space-y-1.5 text-xs text-gray-700">
+              <div>Airport: <strong className="text-gray-900">{currentAirport.name} ({currentAirport.terminal_code})</strong></div>
+              <div>Default Rate: <strong className="text-[#F2B124]">{currentAirport.default_refund_amount} PHP</strong></div>
+              <div>Active Operator: <strong className="text-gray-900">{currentUser.full_name}</strong></div>
               
               <div className="pt-1 flex gap-2">
-                <span className="text-slate-400">Change Agent:</span>
+                <span className="text-gray-600">Change Agent:</span>
                 <select
                   value={currentUser.id}
                   onChange={(e) => {
@@ -453,7 +455,7 @@ export default function FormPage({ showToast = () => {}, currentAirport = MOCK_A
                       showToast(`Logged in as operator: ${u.full_name}`, "success");
                     }
                   }}
-                  className="bg-slate-800 text-[10px] font-bold text-white outline-none rounded border border-slate-700 px-1 select-none cursor-pointer"
+                  className="bg-gray-100 text-[10px] font-bold text-gray-900 outline-none rounded border border-gray-300 px-1 select-none cursor-pointer"
                 >
                   {MOCK_USERS.map(u => (
                     <option key={u.id} value={u.id}>{u.full_name} ({u.role_name})</option>
@@ -469,21 +471,21 @@ export default function FormPage({ showToast = () => {}, currentAirport = MOCK_A
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         
         {/* LEFT WORKSPACE CARD */}
-        <div className="lg:col-span-8 space-y-6 bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+        <div className="lg:col-span-8 space-y-6 bg-white rounded-lg shadow-sm border border-gray-300 overflow-hidden">
           
           {/* STAGE HEADER BAR */}
-          <div className="bg-slate-50 border-b border-slate-200 px-6 py-4 flex flex-wrap items-center justify-between gap-2">
+          <div className="bg-gray-50 border-b border-gray-300 px-6 py-4 flex flex-wrap items-center justify-between gap-2">
             <div>
-              <span className="text-[10px] font-extrabold text-slate-400 uppercase tracking-widest block">Active Terminal Refund Wizard</span>
-              <span className="text-xs text-slate-600">Ensure passport credentials map strictly.</span>
+              <span className="text-[10px] font-extrabold text-gray-600 uppercase tracking-widest block">Active Terminal Refund Wizard</span>
+              <span className="text-xs text-gray-700">Ensure passport credentials map strictly.</span>
             </div>
             
             <div className="flex items-center gap-1.5 text-[10px] font-extrabold uppercase tracking-wider">
-              <span className={`px-2.5 py-1 rounded transition-all ${step >= 1 ? 'bg-blue-900 text-white' : 'bg-slate-100 text-slate-400'}`}>1. Validate OEC</span>
-              <span className="text-slate-300">/</span>
-              <span className={`px-2.5 py-1 rounded transition-all ${step >= 2 ? 'bg-blue-900 text-white' : 'bg-slate-100 text-slate-400'}`}>2. Flight Info</span>
-              <span className="text-slate-300">/</span>
-              <span className={`px-2.5 py-1 rounded transition-all ${step >= 3 ? 'bg-blue-900 text-white' : 'bg-slate-100 text-slate-400'}`}>3. Signature</span>
+              <span className={`px-2.5 py-1 rounded transition-all ${step >= 1 ? 'bg-[#F2B124] text-[#191919]' : 'bg-gray-200 text-gray-600'}`}>1. Validate OEC</span>
+              <span className="text-gray-400">/</span>
+              <span className={`px-2.5 py-1 rounded transition-all ${step >= 2 ? 'bg-[#F2B124] text-[#191919]' : 'bg-gray-200 text-gray-600'}`}>2. Flight Info</span>
+              <span className="text-gray-400">/</span>
+              <span className={`px-2.5 py-1 rounded transition-all ${step >= 3 ? 'bg-[#F2B124] text-[#191919]' : 'bg-gray-200 text-gray-600'}`}>3. Signature</span>
             </div>
           </div>
 
@@ -491,28 +493,28 @@ export default function FormPage({ showToast = () => {}, currentAirport = MOCK_A
           {step === 1 && (
             <div className="p-6 md:p-8 space-y-6 animate-fade-in">
               <div className="space-y-1">
-                <h3 className="text-lg font-bold text-slate-900">Authenticate Overseas Employment Certificate (OEC)</h3>
-                <p className="text-xs text-slate-500">Query status records dynamically across central Philippine databases. Valid active OECs bypass standard terminal checks.</p>
+                <h3 className="text-lg font-bold text-gray-900">Authenticate Overseas Employment Certificate (OEC)</h3>
+                <p className="text-xs text-gray-600">Query status records dynamically across central Philippine databases. Valid active OECs bypass standard terminal checks.</p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center bg-slate-50 p-6 rounded-2xl border border-slate-200">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center bg-gray-50 p-6 rounded-lg border border-gray-300">
                 
-                <div className="text-center md:border-r border-slate-200 md:pr-6 py-2">
+                <div className="text-center md:border-r border-gray-300 md:pr-6 py-2">
                   <button
                     onClick={() => {
                       handleOecLookup("OEC-2026-9912");
                     }}
-                    className="inline-flex flex-col items-center justify-center bg-blue-900 hover:bg-blue-950 text-white w-full max-w-xs py-7 px-4 rounded-xl shadow transition-transform transform hover:-translate-y-0.5"
+                    className="inline-flex flex-col items-center justify-center bg-[#F2B124] hover:bg-[#E0A020] text-[#191919] w-full max-w-xs py-7 px-4 rounded-lg shadow transition-transform transform hover:-translate-y-0.5 font-bold"
                   >
                     <Icons.Scan />
                     <span className="text-xs font-black tracking-widest uppercase mt-3">Scan OEC QR Code</span>
-                    <span className="text-[9px] text-blue-300 mt-1">Direct Scanner Integration</span>
+                    <span className="text-[9px] text-[#191919]/70 mt-1">Direct Scanner Integration</span>
                   </button>
-                  <p className="text-[10px] text-slate-400 mt-2 italic">Tip: Click scanner trigger to load active mock OEC</p>
+                  <p className="text-[10px] text-gray-600 mt-2 italic">Tip: Click scanner trigger to load active mock OEC</p>
                 </div>
 
                 <div className="space-y-3">
-                  <label className="block text-[10px] font-extrabold uppercase tracking-widest text-slate-600">Manual Entry Reference</label>
+                  <label className="block text-[10px] font-extrabold uppercase tracking-widest text-gray-700">Manual Entry Reference</label>
                   <div className="flex gap-2">
                     <input
                       type="text"
@@ -520,64 +522,64 @@ export default function FormPage({ showToast = () => {}, currentAirport = MOCK_A
                       value={oecInput}
                       onChange={(e) => setOecInput(e.target.value)}
                       onKeyDown={(e) => e.key === 'Enter' && handleOecLookup(oecInput)}
-                      className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 outline-none uppercase font-mono tracking-widest text-xs"
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-white text-gray-900 focus:ring-2 focus:ring-[#F2B124] outline-none uppercase font-mono tracking-widest text-xs placeholder-gray-400"
                     />
                     <button
                       onClick={() => handleOecLookup(oecInput)}
-                      className="bg-slate-800 hover:bg-slate-950 text-white px-5 rounded-lg text-xs font-bold uppercase tracking-wider"
+                      className="bg-gray-100 hover:bg-gray-200 text-gray-900 px-5 rounded-lg text-xs font-bold uppercase tracking-wider border border-gray-300"
                     >
                       Verify
                     </button>
                   </div>
 
-                  <div className="text-[10px] text-slate-400 flex flex-wrap gap-2 pt-1 items-center">
+                  <div className="text-[10px] text-gray-600 flex flex-wrap gap-2 pt-1 items-center">
                     <span>Database Status Mappings:</span>
-                    <button onClick={() => { setOecInput("OEC-2026-9912"); handleOecLookup("OEC-2026-9912"); }} className="underline hover:text-blue-900 font-mono text-[9px]">Active Nurse</button>
+                    <button onClick={() => { setOecInput("OEC-2026-9912"); handleOecLookup("OEC-2026-9912"); }} className="underline hover:text-[#F2B124] font-mono text-[9px]">Active Nurse</button>
                     <span>•</span>
-                    <button onClick={() => { setOecInput("OEC-2026-4432"); handleOecLookup("OEC-2026-4432"); }} className="underline hover:text-blue-900 font-mono text-[9px]">Active Engineer</button>
+                    <button onClick={() => { setOecInput("OEC-2026-4432"); handleOecLookup("OEC-2026-4432"); }} className="underline hover:text-[#F2B124] font-mono text-[9px]">Active Engineer</button>
                     <span>•</span>
-                    <button onClick={() => { setOecInput("OEC-2026-1188"); handleOecLookup("OEC-2026-1188"); }} className="underline hover:text-rose-600 font-mono text-[9px]">Duplicate (Used)</button>
+                    <button onClick={() => { setOecInput("OEC-2026-1188"); handleOecLookup("OEC-2026-1188"); }} className="underline hover:text-rose-400 font-mono text-[9px]">Duplicate (Used)</button>
                     <span>•</span>
-                    <button onClick={() => { setOecInput("OEC-2026-0777"); handleOecLookup("OEC-2026-0777"); }} className="underline hover:text-rose-600 font-mono text-[9px]">Expired</button>
+                    <button onClick={() => { setOecInput("OEC-2026-0777"); handleOecLookup("OEC-2026-0777"); }} className="underline hover:text-rose-400 font-mono text-[9px]">Expired</button>
                   </div>
                 </div>
 
               </div>
 
               {validationError && (
-                <div className="bg-rose-50 border border-rose-200 text-rose-800 p-4 rounded-xl flex items-start gap-3 animate-fade-in">
-                  <span className="p-1 bg-rose-100 rounded-full text-rose-600">
+                <div className="bg-rose-50 border border-rose-300 text-rose-800 p-4 rounded-lg flex items-start gap-3 animate-fade-in">
+                  <span className="p-1 bg-rose-200 rounded-full text-rose-700">
                     <Icons.Alert />
                   </span>
                   <div className="text-xs">
                     <strong className="block font-bold">OEC Verification Denied</strong>
-                    <span className="text-rose-700">{validationError}</span>
+                    <span className="text-rose-800">{validationError}</span>
                   </div>
                 </div>
               )}
 
               {currentOecRecord && (
-                <div className={`border rounded-xl p-6 space-y-4 animate-scale-up ${
+                <div className={`border rounded-lg p-6 space-y-4 animate-scale-up ${
                   currentOecRecord.status === 'active'
-                    ? 'bg-emerald-50/40 border-emerald-200'
-                    : 'bg-rose-50/40 border-rose-200'
+                    ? 'bg-emerald-50 border-emerald-300'
+                    : 'bg-rose-50 border-rose-300'
                 }`}>
                   
-                  <div className="flex flex-wrap justify-between items-start gap-4 pb-3 border-b border-dashed border-slate-200">
+                  <div className="flex flex-wrap justify-between items-start gap-4 pb-3 border-b border-dashed border-gray-300">
                     <div>
-                      <span className="text-[9px] font-mono tracking-widest text-slate-400 block">DMW PASSPORT MASTER ID: {currentOecRecord.passenger.id}</span>
-                      <h4 className="text-xl font-black text-slate-900 mt-0.5">
+                      <span className="text-[9px] font-mono tracking-widest text-gray-600 block">DMW PASSPORT MASTER ID: {currentOecRecord.passenger.id}</span>
+                      <h4 className="text-xl font-black text-gray-900 mt-0.5">
                         {currentOecRecord.passenger.last_name}, {currentOecRecord.passenger.first_name}
                       </h4>
-                      <p className="text-xs text-slate-500 font-mono mt-0.5">
-                        Passport: <strong className="text-slate-700">{currentOecRecord.passenger.passport_number}</strong> • Sex: {currentOecRecord.passenger.gender} • Birth: {currentOecRecord.passenger.birth_date}
+                      <p className="text-xs text-gray-700 font-mono mt-0.5">
+                        Passport: <strong className="text-gray-900">{currentOecRecord.passenger.passport_number}</strong> • Sex: {currentOecRecord.passenger.gender} • Birth: {currentOecRecord.passenger.birth_date}
                       </p>
                     </div>
                     
-                    <span className={`px-3 py-1.5 rounded-full text-[10px] font-black tracking-widest uppercase border ${
+                    <span className={`px-3 py-1.5 rounded text-[10px] font-black tracking-widest uppercase border ${
                       currentOecRecord.status === 'active'
-                        ? 'bg-emerald-100 text-emerald-800 border-emerald-200'
-                        : 'bg-rose-100 text-rose-800 border-rose-200'
+                        ? 'bg-emerald-200 text-emerald-900 border-emerald-400'
+                        : 'bg-rose-200 text-rose-900 border-rose-400'
                     }`}>
                       OEC STATUS: {currentOecRecord.status}
                     </span>
@@ -585,14 +587,14 @@ export default function FormPage({ showToast = () => {}, currentAirport = MOCK_A
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
                     <div>
-                      <span className="text-slate-400 block font-medium">Position & Employer</span>
-                      <strong className="text-slate-700 block">{currentOecRecord.job_position}</strong>
-                      <span className="text-slate-500 text-[11px]">{currentOecRecord.employer_name}</span>
+                      <span className="text-gray-600 block font-medium">Position & Employer</span>
+                      <strong className="text-gray-900 block">{currentOecRecord.job_position}</strong>
+                      <span className="text-gray-700 text-[11px]">{currentOecRecord.employer_name}</span>
                     </div>
                     <div>
-                      <span className="text-slate-400 block font-medium">Deployed Job Site</span>
-                      <strong className="text-slate-700 block">{currentOecRecord.job_site}</strong>
-                      <span className="text-slate-500 text-[11px]">Contract Expiry: {currentOecRecord.expiry_date.split('T')[0]}</span>
+                      <span className="text-gray-600 block font-medium">Deployed Job Site</span>
+                      <strong className="text-gray-900 block">{currentOecRecord.job_site}</strong>
+                      <span className="text-gray-700 text-[11px]">Contract Expiry: {currentOecRecord.expiry_date.split('T')[0]}</span>
                     </div>
                   </div>
 
@@ -600,7 +602,7 @@ export default function FormPage({ showToast = () => {}, currentAirport = MOCK_A
                     <div className="flex justify-end pt-2">
                       <button
                         onClick={() => setStep(2)}
-                        className="bg-blue-900 hover:bg-blue-950 text-white font-bold text-xs uppercase tracking-widest px-6 py-3 rounded-lg shadow-md flex items-center gap-1.5 transition-colors"
+                        className="bg-[#F2B124] hover:bg-[#E0A020] text-[#191919] font-bold text-xs uppercase tracking-widest px-6 py-3 rounded-lg shadow-md flex items-center gap-1.5 transition-colors"
                       >
                         <span>Capture Boarding Pass</span>
                         <Icons.ArrowRight />
@@ -609,8 +611,8 @@ export default function FormPage({ showToast = () => {}, currentAirport = MOCK_A
                   )}
 
                   {currentOecRecord.status !== 'active' && (
-                    <div className="p-3 bg-rose-50 border border-rose-100 text-rose-800 rounded-lg text-xs flex items-center gap-2">
-                      <span className="text-rose-600 font-bold font-mono">⚠️ [REJECTED]</span>
+                    <div className="p-3 bg-rose-50 border border-rose-300 text-rose-800 rounded text-xs flex items-center gap-2">
+                      <span className="text-rose-700 font-bold font-mono">⚠️ [REJECTED]</span>
                       <span>Relational constraints prevent refunding this OEC due to non-active database status parameters.</span>
                     </div>
                   )}
@@ -626,49 +628,49 @@ export default function FormPage({ showToast = () => {}, currentAirport = MOCK_A
             <div className="p-6 md:p-8 space-y-6 animate-fade-in">
               <div className="flex justify-between items-center gap-4">
                 <div className="space-y-1">
-                  <h3 className="text-lg font-bold text-slate-900">Collect Flight Details (Boarding Pass)</h3>
-                  <p className="text-xs text-slate-500">Record boarding logs to tie the payout instance with physical flight logs on departure files.</p>
+                  <h3 className="text-lg font-bold text-gray-900">Collect Flight Details (Boarding Pass)</h3>
+                  <p className="text-xs text-gray-600">Record boarding logs to tie the payout instance with physical flight logs on departure files.</p>
                 </div>
-                <button onClick={() => setStep(1)} className="text-slate-500 hover:text-slate-800 text-xs font-bold">
+                <button onClick={() => setStep(1)} className="text-gray-600 hover:text-gray-900 text-xs font-bold">
                   ← Back to OEC
                 </button>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 
-                <div className="bg-slate-950 text-white rounded-2xl p-5 border border-slate-800 flex flex-col justify-between min-h-[280px] relative overflow-hidden">
-                  <div className="absolute inset-4 border border-dashed border-white/10 rounded-xl pointer-events-none flex items-center justify-center">
+                <div className="bg-white text-gray-900 rounded-lg p-5 border border-gray-300 flex flex-col justify-between min-h-[280px] relative overflow-hidden">
+                  <div className="absolute inset-4 border border-dashed border-gray-300 rounded-lg pointer-events-none flex items-center justify-center">
                     {!ocrSuccess && !isSimulatingOCR && (
-                      <span className="text-slate-600 text-[10px] font-mono tracking-widest">POSITION BOARDING CARD</span>
+                      <span className="text-gray-400 text-[10px] font-mono tracking-widest">POSITION BOARDING CARD</span>
                     )}
 
                     {isSimulatingOCR && (
-                      <div className="absolute top-0 left-0 w-full h-1 bg-amber-500 animate-scanner"></div>
+                      <div className="absolute top-0 left-0 w-full h-1 bg-[#F2B124] animate-scanner"></div>
                     )}
                   </div>
 
                   <div className="flex justify-between items-center relative z-10">
-                    <span className="text-[9px] font-mono tracking-widest text-slate-400 flex items-center gap-1.5">
+                    <span className="text-[9px] font-mono tracking-widest text-gray-600 flex items-center gap-1.5">
                       <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span>
                       BOARDING SCANNER MODULE
                     </span>
-                    <span className="text-[9px] font-mono text-slate-400">NAIA-T1 HW v2</span>
+                    <span className="text-[9px] font-mono text-gray-600">NAIA-T1 HW v2</span>
                   </div>
 
                   <div className="text-center space-y-2 relative z-10">
                     {isSimulatingOCR ? (
                       <div className="space-y-1">
-                        <p className="text-xs font-bold text-amber-400 animate-pulse">Running High-Accuracy OCR Model...</p>
-                        <p className="text-[9px] font-mono text-slate-500">Extracting Carrier, Seat No, Flight Date stamps</p>
+                        <p className="text-xs font-bold text-[#F2B124] animate-pulse">Running High-Accuracy OCR Model...</p>
+                        <p className="text-[9px] font-mono text-gray-600">Extracting Carrier, Seat No, Flight Date stamps</p>
                       </div>
                     ) : ocrSuccess ? (
                       <div className="space-y-1">
                         <Icons.CheckCircle className="w-8 h-8 text-emerald-400 mx-auto" />
-                        <p className="text-xs font-extrabold text-emerald-400">Boarding Pass Read Successfully</p>
-                        <p className="text-[9px] text-slate-400 font-mono">Carrier PR matched to Philippines records.</p>
+                        <p className="text-xs font-extrabold text-emerald-600">Boarding Pass Read Successfully</p>
+                        <p className="text-[9px] text-gray-600 font-mono">Carrier PR matched to Philippines records.</p>
                       </div>
                     ) : (
-                      <p className="text-xs text-slate-500 max-w-xs mx-auto">Click simulation below to auto-complete form variables from mock document.</p>
+                      <p className="text-xs text-gray-600 max-w-xs mx-auto">Click simulation below to auto-complete form variables from mock document.</p>
                     )}
                   </div>
 
@@ -676,7 +678,7 @@ export default function FormPage({ showToast = () => {}, currentAirport = MOCK_A
                     <button
                       onClick={triggerBoardingPassOCR}
                       disabled={isSimulatingOCR}
-                      className="w-full bg-white/5 hover:bg-white/10 border border-white/15 py-3 rounded-lg text-xs font-extrabold uppercase tracking-widest transition-colors flex items-center justify-center gap-2 disabled:opacity-50"
+                      className="w-full bg-gray-100 hover:bg-gray-200 border border-gray-300 py-3 rounded-lg text-xs font-extrabold uppercase tracking-widest transition-colors flex items-center justify-center gap-2 disabled:opacity-50 text-gray-900"
                     >
                       <Icons.Camera />
                       <span>{isSimulatingOCR ? "Extracting..." : "Scan Boarding Card OCR"}</span>
@@ -686,11 +688,11 @@ export default function FormPage({ showToast = () => {}, currentAirport = MOCK_A
 
                 <div className="space-y-4">
                   <div>
-                    <label className="block text-[10px] font-extrabold uppercase tracking-widest text-slate-600 mb-1">Airline Carrier Code</label>
+                    <label className="block text-[10px] font-extrabold uppercase tracking-widest text-gray-700 mb-1">Airline Carrier Code</label>
                     <select
                       value={airlineCode}
                       onChange={(e) => setAirlineCode(e.target.value)}
-                      className="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 outline-none text-xs text-slate-800 font-mono select-none cursor-pointer"
+                      className="w-full px-4 py-2.5 rounded-lg border border-gray-300 bg-white focus:ring-2 focus:ring-[#F2B124] outline-none text-xs text-gray-900 font-mono select-none cursor-pointer"
                     >
                       <option value="">-- Choose Airline code --</option>
                       {MOCK_AIRLINES.map(line => (
@@ -701,31 +703,31 @@ export default function FormPage({ showToast = () => {}, currentAirport = MOCK_A
 
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-[10px] font-extrabold uppercase tracking-widest text-slate-600 mb-1">Flight Number</label>
+                      <label className="block text-[10px] font-extrabold uppercase tracking-widest text-gray-700 mb-1">Flight Number</label>
                       <input
                         required
                         type="text"
                         placeholder="e.g. PR-102"
                         value={flightNo}
                         onChange={(e) => setFlightNo(e.target.value)}
-                        className="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 outline-none text-xs font-mono uppercase tracking-widest"
+                        className="w-full px-4 py-2.5 rounded-lg border border-gray-300 bg-white text-gray-900 focus:ring-2 focus:ring-[#F2B124] outline-none text-xs font-mono uppercase tracking-widest"
                       />
                     </div>
                     <div>
-                      <label className="block text-[10px] font-extrabold uppercase tracking-widest text-slate-600 mb-1">Departure Date</label>
+                      <label className="block text-[10px] font-extrabold uppercase tracking-widest text-gray-700 mb-1">Departure Date</label>
                       <input
                         required
                         type="date"
                         value={departureDate}
                         onChange={(e) => setDepartureDate(e.target.value)}
-                        className="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 outline-none text-xs"
+                        className="w-full px-4 py-2.5 rounded-lg border border-gray-300 bg-white text-gray-900 focus:ring-2 focus:ring-[#F2B124] outline-none text-xs"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-[10px] font-extrabold uppercase tracking-widest text-slate-600 mb-1">Assigned Airport Gate Desk</label>
-                    <div className="bg-slate-100 px-4 py-3 rounded-lg text-xs font-mono text-slate-700 border border-slate-200">
+                    <label className="block text-[10px] font-extrabold uppercase tracking-widest text-gray-700 mb-1">Assigned Airport Gate Desk</label>
+                    <div className="bg-white px-4 py-3 rounded-lg text-xs font-mono text-gray-800 border border-gray-300">
                       Terminal Assigned: <strong>{currentAirport.name} ({currentAirport.terminal_code})</strong>
                     </div>
                   </div>
@@ -739,7 +741,7 @@ export default function FormPage({ showToast = () => {}, currentAirport = MOCK_A
                         }
                         setStep(3);
                       }}
-                      className="w-full bg-blue-900 hover:bg-blue-950 text-white font-bold text-xs uppercase tracking-widest py-3.5 rounded-xl shadow-md flex items-center justify-center gap-1.5 transition-colors"
+                      className="w-full bg-[#F2B124] hover:bg-[#E0A020] text-[#191919] font-bold text-xs uppercase tracking-widest py-3.5 rounded-lg shadow-md flex items-center justify-center gap-1.5 transition-colors"
                     >
                       <span>Proceed to Refund Settlement</span>
                       <Icons.ArrowRight />
@@ -757,61 +759,61 @@ export default function FormPage({ showToast = () => {}, currentAirport = MOCK_A
             <div className="p-6 md:p-8 space-y-6 animate-fade-in">
               <div className="flex justify-between items-center gap-4">
                 <div className="space-y-1">
-                  <h3 className="text-lg font-bold text-slate-900">Authorize Refund & Collect Signature</h3>
-                  <p className="text-xs text-slate-500">Provide direct cash disbursement authorization. The digital signature is locked securely into relational audit trails.</p>
+                  <h3 className="text-lg font-bold text-gray-900">Authorize Refund & Collect Signature</h3>
+                  <p className="text-xs text-gray-600">Provide direct cash disbursement authorization. The digital signature is locked securely into relational audit trails.</p>
                 </div>
-                <button onClick={() => setStep(2)} className="text-slate-500 hover:text-slate-800 text-xs font-bold">
+                <button onClick={() => setStep(2)} className="text-gray-600 hover:text-gray-900 text-xs font-bold">
                   ← Back to Flight
                 </button>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
                 
-                <div className="bg-slate-50 rounded-2xl border border-slate-200 p-5 space-y-4">
-                  <span className="text-[9px] font-extrabold text-slate-400 uppercase tracking-widest block">Audit Invoice Slip</span>
+                <div className="bg-gray-100 rounded-lg border border-gray-300 p-5 space-y-4">
+                  <span className="text-[9px] font-extrabold text-gray-600 uppercase tracking-widest block">Audit Invoice Slip</span>
                   
                   <div className="space-y-2 text-xs">
-                    <div className="flex justify-between border-b border-slate-200 pb-1">
-                      <span className="text-slate-400">Beneficiary Worker:</span>
-                      <strong className="text-slate-800">{currentOecRecord?.passenger.first_name} {currentOecRecord?.passenger.last_name}</strong>
+                    <div className="flex justify-between border-b border-gray-300 pb-1">
+                      <span className="text-gray-700">Beneficiary Worker:</span>
+                      <strong className="text-gray-900">{currentOecRecord?.passenger.first_name} {currentOecRecord?.passenger.last_name}</strong>
                     </div>
-                    <div className="flex justify-between border-b border-slate-200 pb-1">
-                      <span className="text-slate-400">OEC ID Reference:</span>
-                      <strong className="text-slate-800 font-mono text-[11px]">{currentOecRecord?.oec_number}</strong>
+                    <div className="flex justify-between border-b border-gray-300 pb-1">
+                      <span className="text-gray-700">OEC ID Reference:</span>
+                      <strong className="text-gray-900 font-mono text-[11px]">{currentOecRecord?.oec_number}</strong>
                     </div>
-                    <div className="flex justify-between border-b border-slate-200 pb-1">
-                      <span className="text-slate-400">Carrier Departure:</span>
-                      <strong className="text-slate-800 font-mono text-[11px]">{airlineCode} - {flightNo} ({departureDate})</strong>
+                    <div className="flex justify-between border-b border-gray-300 pb-1">
+                      <span className="text-gray-700">Carrier Departure:</span>
+                      <strong className="text-gray-900 font-mono text-[11px]">{airlineCode} - {flightNo} ({departureDate})</strong>
                     </div>
-                    <div className="flex justify-between border-b border-slate-200 pb-1">
-                      <span className="text-slate-400">Processing Gate:</span>
-                      <strong className="text-slate-800 font-mono text-[11px]">{currentAirport.terminal_code}</strong>
+                    <div className="flex justify-between border-b border-gray-300 pb-1">
+                      <span className="text-gray-700">Processing Gate:</span>
+                      <strong className="text-gray-900 font-mono text-[11px]">{currentAirport.terminal_code}</strong>
                     </div>
                   </div>
 
-                  <div className="p-4 bg-amber-500/10 border border-amber-300 rounded-xl flex justify-between items-center">
+                  <div className="p-4 bg-yellow-50 border border-yellow-300 rounded-lg flex justify-between items-center">
                     <div>
-                      <span className="text-[10px] text-amber-800 font-black uppercase tracking-wider block">IPSC CASH COMPENSATED</span>
-                      <span className="text-2xl font-black text-slate-900 font-mono">₱{currentAirport.default_refund_amount}.00 PHP</span>
+                      <span className="text-[10px] text-yellow-800 font-black uppercase tracking-wider block">IPSC CASH COMPENSATED</span>
+                      <span className="text-2xl font-black text-gray-900 font-mono">₱{currentAirport.default_refund_amount}.00 PHP</span>
                     </div>
-                    <span className="text-[10px] font-bold bg-amber-200 text-amber-900 px-2 py-1 rounded">No Coins</span>
+                    <span className="text-[10px] font-bold bg-yellow-200 text-yellow-900 px-2 py-1 rounded">No Coins</span>
                   </div>
                 </div>
 
                 <div className="space-y-2">
                   <div className="flex justify-between items-center">
-                    <span className="text-xs font-extrabold uppercase text-slate-600 flex items-center gap-1.5">
+                    <span className="text-xs font-extrabold uppercase text-gray-700 flex items-center gap-1.5">
                       <Icons.Signature />
                       <span>OFW Digital Sign Ledger</span>
                     </span>
-                    <button onClick={clearSignature} className="text-[10px] text-rose-600 hover:text-rose-800 font-bold uppercase">
+                    <button onClick={clearSignature} className="text-[10px] text-rose-600 hover:text-rose-700 font-bold uppercase">
                       Reset Pad
                     </button>
                   </div>
 
-                  <div className="border border-slate-300 bg-white rounded-xl h-[170px] overflow-hidden relative shadow-inner">
+                  <div className="border border-gray-300 bg-white rounded-lg h-[170px] overflow-hidden relative shadow-inner">
                     {!hasSigned && (
-                      <div className="absolute inset-0 flex flex-col items-center justify-center text-slate-400 text-center pointer-events-none p-4">
+                        <div className="absolute inset-0 flex flex-col items-center justify-center text-gray-400 text-center pointer-events-none p-4">
                         <span className="text-xs font-bold">DRAW OFFICIAL SIGNATURE</span>
                         <span className="text-[9px] mt-0.5">Left-click and drag or draw with touchscreen fingers</span>
                       </div>
@@ -835,14 +837,14 @@ export default function FormPage({ showToast = () => {}, currentAirport = MOCK_A
 
               </div>
 
-              <div className="flex justify-end pt-2 border-t border-slate-100">
+              <div className="flex justify-end pt-2 border-t border-gray-300">
                 <button
                   onClick={triggerCashDisbursal}
                   disabled={!hasSigned}
-                  className={`font-black text-xs uppercase tracking-widest px-8 py-4 rounded-xl shadow transition-all ${
+                  className={`font-black text-xs uppercase tracking-widest px-8 py-4 rounded-lg shadow transition-all ${
                     hasSigned
-                      ? 'bg-emerald-600 hover:bg-emerald-700 text-white transform hover:-translate-y-0.5'
-                      : 'bg-slate-100 text-slate-400 cursor-not-allowed'
+                      ? 'bg-[#F2B124] hover:bg-[#E0A020] text-[#191919] transform hover:-translate-y-0.5'
+                      : 'bg-white/10 text-white/40 cursor-not-allowed'
                   }`}
                 >
                   ✓ Disburse Cash (₱{currentAirport.default_refund_amount} PHP)
@@ -855,30 +857,30 @@ export default function FormPage({ showToast = () => {}, currentAirport = MOCK_A
           {/* STEP 4: RECEIPT COMPLETED SCREEN */}
           {step === 4 && (
             <div className="p-8 text-center space-y-6 max-w-lg mx-auto animate-scale-up">
-              <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600 mx-auto">
+              <div className="w-16 h-16 bg-emerald-500/20 rounded-full flex items-center justify-center text-emerald-400 mx-auto">
                 <Icons.CheckCircle className="w-10 h-10" />
               </div>
 
               <div className="space-y-1.5">
-                <h3 className="text-2xl font-black text-slate-900">Transaction Settled Successfully</h3>
-                <p className="text-xs text-slate-500 font-mono">Logged by: Agent {currentUser.username} ({currentAirport.terminal_code})</p>
-                <p className="text-xs text-slate-600 leading-relaxed max-w-sm mx-auto pt-2">
+                <h3 className="text-2xl font-black text-gray-900">Transaction Settled Successfully</h3>
+                <p className="text-xs text-gray-600 font-mono">Logged by: Agent {currentUser.username} ({currentAirport.terminal_code})</p>
+                <p className="text-xs text-gray-700 leading-relaxed max-w-sm mx-auto pt-2">
                   The terminal fee has been physically refunded to the OFW traveler. Signed ledger logs has been synced cleanly to central audit offices.
                 </p>
               </div>
 
-              <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 text-[11px] font-mono space-y-1.5 text-left max-w-sm mx-auto">
-                <div className="flex justify-between"><span>Worker Name:</span> <strong className="text-slate-800">{currentOecRecord?.passenger.first_name} {currentOecRecord?.passenger.last_name}</strong></div>
-                <div className="flex justify-between"><span>Verified Passport:</span> <strong className="text-slate-800">{currentOecRecord?.passenger.passport_number}</strong></div>
-                <div className="flex justify-between"><span>OEC Serial:</span> <strong className="text-slate-800">{currentOecRecord?.oec_number}</strong></div>
-                <div className="flex justify-between"><span>Assigned Gate:</span> <strong className="text-slate-800">{currentAirport.terminal_code}</strong></div>
-                <div className="flex justify-between border-t border-slate-200 pt-1.5 mt-1.5 text-xs"><span className="font-extrabold text-slate-700">Refund Amount (PHP):</span> <strong className="text-emerald-600 font-bold">₱{currentAirport.default_refund_amount}.00</strong></div>
+              <div className="bg-gray-100 border border-gray-300 rounded-lg p-4 text-[11px] font-mono space-y-1.5 text-left max-w-sm mx-auto">
+                <div className="flex justify-between"><span>Worker Name:</span> <strong className="text-gray-900">{currentOecRecord?.passenger.first_name} {currentOecRecord?.passenger.last_name}</strong></div>
+                <div className="flex justify-between"><span>Verified Passport:</span> <strong className="text-gray-900">{currentOecRecord?.passenger.passport_number}</strong></div>
+                <div className="flex justify-between"><span>OEC Serial:</span> <strong className="text-gray-900">{currentOecRecord?.oec_number}</strong></div>
+                <div className="flex justify-between"><span>Assigned Gate:</span> <strong className="text-gray-900">{currentAirport.terminal_code}</strong></div>
+                <div className="flex justify-between border-t border-gray-300 pt-1.5 mt-1.5 text-xs"><span className="font-extrabold text-gray-600">Refund Amount (PHP):</span> <strong className="text-[#F2B124] font-bold">₱{currentAirport.default_refund_amount}.00</strong></div>
               </div>
 
               <div className="flex justify-center">
                 <button
                   onClick={resetForm}
-                  className="bg-blue-900 hover:bg-blue-950 text-white font-bold text-xs uppercase tracking-widest px-8 py-3.5 rounded-lg shadow-md transition-colors"
+                  className="bg-[#F2B124] hover:bg-[#E0A020] text-[#191919] font-bold text-xs uppercase tracking-widest px-8 py-3.5 rounded-lg shadow-md transition-colors"
                 >
                   Process Next OFW Passenger
                 </button>
@@ -890,28 +892,28 @@ export default function FormPage({ showToast = () => {}, currentAirport = MOCK_A
 
         {/* RIGHT SIDEBAR: RECENT ACTIVITY STREAM */}
         <div className="lg:col-span-4 space-y-6">
-          <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
-            <div className="bg-slate-50 border-b border-slate-200 px-5 py-4 flex items-center justify-between">
+          <div className="bg-white rounded-lg shadow-sm border border-gray-300 overflow-hidden">
+            <div className="bg-gray-50 border-b border-gray-300 px-5 py-4 flex items-center justify-between">
               <div>
-                <h4 className="text-xs font-bold text-slate-800 uppercase tracking-wider">Live Refund Ledger</h4>
-                <p className="text-[10px] text-slate-400 mt-0.5">Real-time transacted audit log files</p>
+                <h4 className="text-xs font-bold text-gray-900 uppercase tracking-wider">Live Refund Ledger</h4>
+                <p className="text-[10px] text-gray-600 mt-0.5">Real-time transacted audit log files</p>
               </div>
               <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
             </div>
 
-            <div className="divide-y divide-slate-100 max-h-[500px] overflow-y-auto">
+            <div className="divide-y divide-gray-200 max-h-[500px] overflow-y-auto">
               {recentRefundList.map((tx) => (
-                <div key={tx.id} className="p-4 hover:bg-slate-50 transition-colors flex justify-between items-start gap-3">
+                <div key={tx.id} className="p-4 hover:bg-gray-50 transition-colors flex justify-between items-start gap-3">
                   <div className="space-y-1">
                     <div className="flex items-center gap-1.5">
-                      <span className="font-bold text-xs text-slate-800">{tx.passenger_name}</span>
+                      <span className="font-bold text-xs text-gray-900">{tx.passenger_name}</span>
                     </div>
                     
-                    <div className="text-[10px] text-slate-500">
-                      OEC: <span className="font-mono text-slate-700">{tx.oec_no}</span> • Flight: <span className="font-mono text-slate-700 font-bold">{tx.flight_number}</span>
+                    <div className="text-[10px] text-gray-700">
+                      OEC: <span className="font-mono text-gray-800">{tx.oec_no}</span> • Flight: <span className="font-mono text-gray-800 font-bold">{tx.flight_number}</span>
                     </div>
 
-                    <div className="flex gap-2 text-[9px] text-slate-400 font-mono">
+                    <div className="flex gap-2 text-[9px] text-gray-600 font-mono">
                       <span>{tx.processed_at}</span>
                       <span>•</span>
                       <span>{tx.airport_code}</span>
@@ -919,11 +921,11 @@ export default function FormPage({ showToast = () => {}, currentAirport = MOCK_A
                   </div>
 
                   <div className="text-right space-y-1">
-                    <strong className="text-xs text-emerald-600 block">₱{tx.refund_amount}</strong>
+                    <strong className="text-xs text-[#F2B124] block">₱{tx.refund_amount}</strong>
                     <span className={`text-[8px] border px-1.5 py-0.5 rounded uppercase font-bold tracking-wider ${
                       tx.status === 'completed'
-                        ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
-                        : 'bg-amber-50 text-amber-700 border-amber-200'
+                        ? 'bg-emerald-200 text-emerald-900 border-emerald-400'
+                        : 'bg-amber-200 text-amber-900 border-amber-400'
                     }`}>
                       {tx.status}
                     </span>
@@ -932,8 +934,8 @@ export default function FormPage({ showToast = () => {}, currentAirport = MOCK_A
               ))}
             </div>
 
-            <div className="bg-slate-50 border-t border-slate-200 p-4 text-center">
-              <span className="text-[10px] text-slate-500 italic block font-sans">Postgres Database logs auto-synced with Bagong Pilipinas digital ledger</span>
+            <div className="bg-gray-50 border-t border-gray-300 p-4 text-center">
+              <span className="text-[10px] text-gray-600 italic block font-sans">Postgres Database logs auto-synced with Bagong Pilipinas digital ledger</span>
             </div>
           </div>
         </div>
