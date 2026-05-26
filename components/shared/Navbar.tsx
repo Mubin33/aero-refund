@@ -44,9 +44,24 @@ export function Navbar() {
       <div className="mx-auto max-w-[1400px] rounded-[24px] border bg-black/40 border-white/15 bg-[#00000001]  shadow-xl backdrop-blur-lg">
         <div className="flex items-center justify-between gap-6 px-6 py-2 lg:py-[30px] sm:px-8">
           {/* Logo */}
-          <Link href="/" className="flex items-center shrink-0">
+          <Link href="/" className="flex items-center shrink-0 flex-1">
            <img src="/logo.png" alt="AeroRefund Logo" className="h-15 w-auto" />
           </Link>
+
+           <nav
+            className="hidden items-center gap-8 text-base font-semibold text-white/90 lg:flex"
+            aria-label="Main"
+          >
+            {navLinks.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                className="whitespace-nowrap transition-colors hover:text-[#F2B124] font-medium text-white"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
 
           {/* Profile Dropdown Menu */}
           <div className="ml-auto relative" ref={profileRef}>

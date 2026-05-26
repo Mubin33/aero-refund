@@ -399,8 +399,10 @@ export default function FormPage({ showToast = () => {}, currentAirport = MOCK_A
   return (
     <div className="max-w-7xl mx-auto px-4 md:px-6 py-6 space-y-6">
       
+
+<Navbar />
       {/* DBML SCHEMA INSPECTOR TOGGLE ROW */}
-      {/* <div className="bg-white text-gray-900 px-5 py-3 rounded-lg border border-gray-300 flex justify-between items-center text-xs select-none">
+      <div className="bg-white text-gray-900 px-5 py-3 rounded-lg border border-gray-300 flex justify-between items-center text-xs select-none">
         <span className="flex items-center gap-2">
           <Icons.Database />
           <span>Active relational DB mapping: Postgres DBML Schema</span>
@@ -411,9 +413,7 @@ export default function FormPage({ showToast = () => {}, currentAirport = MOCK_A
         >
           {showDbmlInspector ? "✕ Hide DBML Inspector" : "⚡ Show DBML Inspector"}
         </button>
-      </div> */}
-
-<Navbar />
+      </div>
       {/* LIVE DBML SCHEMATICS PANEL */}
       {showDbmlInspector && (
         <div className="bg-white border border-gray-300 text-gray-900 p-6 rounded-xl grid grid-cols-1 md:grid-cols-3 gap-6 font-mono text-[11px] animate-scale-up select-none">
