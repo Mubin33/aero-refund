@@ -55,7 +55,7 @@
 //             🇵🇭 DBML COMPLIANT
 //           </span>
 //           <span className="text-xs text-slate-300 hidden xl:inline">
-//             Centralized terminal fee database connected via direct PostgreSQL schema mapping
+//             Centralized terminal fee database connected via direct DBQL schema mapping
 //           </span>
 //         </div>
         
@@ -135,7 +135,7 @@
 //             <div className="text-center mb-6">
 //               <span className="text-amber-600 font-extrabold tracking-widest uppercase text-[10px] bg-amber-50 px-2 py-1 rounded">Interactive Prototype Demo</span>
 //               <h3 className="text-2xl font-black text-slate-900 mt-2">Book a Calibration Call</h3>
-//               <p className="text-slate-500 text-xs mt-1">Schedule a live compliance and PostgreSQL synchronization audit with our technical engineers.</p>
+//               <p className="text-slate-500 text-xs mt-1">Schedule a live compliance and DBQL synchronization audit with our technical engineers.</p>
 //             </div>
 
 //             <form onSubmit={(e) => {

@@ -102,7 +102,7 @@ export default function HomePage({ onOpenConsole, onBookDemo, showToast }: Homep
                   <div className="w-2.5 h-2.5 rounded-full bg-amber-500"></div>
                   <div className="w-2.5 h-2.5 rounded-full bg-emerald-500"></div>
                 </div>
-                <span className="text-[9px] text-slate-500 font-mono tracking-widest uppercase">POSTGRES CORE DATABASE PREVIEW</span>
+                <span className="text-[9px] text-slate-500 font-mono tracking-widest uppercase">DB CORE DATABASE PREVIEW</span>
               </div>
               
               <div className="space-y-4">

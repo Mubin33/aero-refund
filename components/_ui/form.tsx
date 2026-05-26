@@ -405,7 +405,7 @@ export default function FormPage({ showToast = () => {}, currentAirport = MOCK_A
       <div className="bg-white text-gray-900 px-5 py-3 rounded-lg border border-gray-300 flex justify-between items-center text-xs select-none">
         <span className="flex items-center gap-2">
           <Icons.Database />
-          <span>Active relational DB mapping: Postgres DBML Schema</span>
+          <span>Active relational DB mapping: DB DBML Schema</span>
         </span>
         <button
           onClick={() => setShowDbmlInspector(!showDbmlInspector)}
@@ -935,7 +935,7 @@ export default function FormPage({ showToast = () => {}, currentAirport = MOCK_A
             </div>
 
             <div className="bg-gray-50 border-t border-gray-300 p-4 text-center">
-              <span className="text-[10px] text-gray-600 italic block font-sans">Postgres Database logs auto-synced with Bagong Pilipinas digital ledger</span>
+              <span className="text-[10px] text-gray-600 italic block font-sans">DB Database logs auto-synced with Bagong Pilipinas digital ledger</span>
             </div>
           </div>
         </div>
