@@ -4,25 +4,21 @@ import { useState } from 'react';
 import Link from 'next/link'; 
 
 const productLinks = [
-  { label: 'Features', href: '/features' },
-  { label: 'Live Verification', href: '/live-verification' },
-  { label: 'Fraud Detection', href: '/fraud-detection' },
-  { label: 'IVR Integration', href: '/ivr-integration' },
-  { label: 'Agent Dashboard', href: '/agent-dashboard' },
+  { label: 'Features', href: '#' },
+  { label: 'Live Verification', href: '#' },
+  { label: 'Fraud Detection', href: '#' },
+  { label: 'IVR Integration', href: '#' },
+  { label: 'Agent Dashboard', href: '#' },
 ];
 
 const developerLinks = [
-  { label: 'About', href: '/about' },
-  { label: 'Contact Sales', href: '/contact' },
-  { label: 'Privacy Policy', href: '/privacy' },
-  { label: 'Terms & Conditions', href: '/terms' },
+  { label: 'About', href: '#' },
+  { label: 'Contact Sales', href: '# ' },
+  { label: 'Privacy Policy', href: '#' },
+  { label: 'Terms & Conditions', href: '#' },
 ];
 
-const socialLinks = [
-  { icon: "Facebook", label: 'Facebook', href: 'https://facebook.com' },
-  { icon: "Twitter", label: 'X / Twitter', href: 'https://twitter.com' },
-  { icon: "Instagram", label: 'Instagram', href: 'https://instagram.com' },
-];
+ 
 
 export default function AeroRefundFooter() {
   const [email, setEmail] = useState('');
@@ -125,22 +121,7 @@ export default function AeroRefundFooter() {
       </div>
 
       {/* ── Bottom bar ── */}
-      <div className="border-t border-white/5">
-        <div className="max-w-7xl mx-auto px-6 py-6 flex justify-center gap-7">
-          {socialLinks.map(({ icon: Icon, label, href }) => (
-            <a
-              key={label}
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={label}
-              className="text-white/40 hover:text-white transition-colors"
-            >
-              {/* <Icon size={20} /> */}
-            </a>
-          ))}
-        </div>
-      </div>
+       
     </footer>
   );
 }
