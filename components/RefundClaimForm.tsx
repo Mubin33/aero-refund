@@ -508,7 +508,7 @@ export default function RefundClaimForm({ showToast, currentAirport }: RefundCla
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 md:px-6 py-6 space-y-6">
+    <div className="max-w-6xl mx-auto px-4 md:px-6 py-6 space-y-6">
       
       {/* QUICK SYSTEM COMPLIANCE SUMMARY */}
       <div className="bg-slate-900 text-slate-300 px-5 py-3 mt-3 rounded-xl border border-[#111111] flex justify-between items-center text-xs select-none">
@@ -522,10 +522,10 @@ export default function RefundClaimForm({ showToast, currentAirport }: RefundCla
       </div>
 
       {/* PORTAL INTERACTIVE SEGMENT */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <div className="grid gap-8 items-start">
         
         {/* LEFT WORKSPACE: INTERACTIVE TRAVELER WIZARD (8 COLS) */}
-        <div className="lg:col-span-8 space-y-6 bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+        <div className=" space-y-6 bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
           
           {/* STEP HEADER PROGRESS STAGES */}
           <div className="bg-slate-50 border-b border-slate-200 px-6 py-4 flex flex-wrap items-center justify-between gap-2">
@@ -1083,7 +1083,7 @@ export default function RefundClaimForm({ showToast, currentAirport }: RefundCla
         </div>
 
         {/* RIGHT SIDEBAR: RECENT DISBURSEMENT STREAM (4 COLS) */}
-        <div className="lg:col-span-4 space-y-6">
+        {/* <div className="lg:col-span-4 space-y-6">
           <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
             <div className="bg-slate-50 border-b border-slate-200 px-5 py-4 flex items-center justify-between">
               <div>
@@ -1128,7 +1128,7 @@ export default function RefundClaimForm({ showToast, currentAirport }: RefundCla
               <span className="text-[10px] text-slate-500 italic block font-sans">Encryption protected under R.A. 10173 Data Privacy Act guidelines</span>
             </div>
           </div>
-        </div>
+        </div> */}
 
       </div>
     </div>
