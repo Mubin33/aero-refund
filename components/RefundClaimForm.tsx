@@ -511,7 +511,7 @@ export default function RefundClaimForm({ showToast, currentAirport }: RefundCla
     <div className="max-w-7xl mx-auto px-4 md:px-6 py-6 space-y-6">
       
       {/* QUICK SYSTEM COMPLIANCE SUMMARY */}
-      <div className="bg-slate-900 text-slate-300 px-5 py-3 rounded-xl border border-[#111111] flex justify-between items-center text-xs select-none">
+      <div className="bg-slate-900 text-slate-300 px-5 py-3 mt-3 rounded-xl border border-[#111111] flex justify-between items-center text-xs select-none">
         <span className="flex items-center gap-2">
           <Icons.Database />
           <span>DB Active Connection: Verified DMW Schema Syncing</span>
