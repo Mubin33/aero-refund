@@ -106,7 +106,7 @@ export default function HomePage({ onOpenConsole, onBookDemo, showToast }: Homep
               </div>
               
               <div className="space-y-4">
-                <div className="p-4 bg-blue-950/50 border border-blue-900/40 rounded-xl space-y-2">
+                <div className="p-4 bg-blue-950/50 border border-[#111111]/40 rounded-xl space-y-2">
                   <div className="flex justify-between items-center">
                     <span className="text-[10px] text-amber-400 font-mono">Table: oecs ⇄ passengers</span>
                     <span className="bg-emerald-500/20 text-emerald-400 text-[9px] font-bold px-2 py-0.5 rounded border border-emerald-500/20">VALID</span>

@@ -114,7 +114,7 @@ export function Navbar() {
         {/* Mobile Navigation Menu */}
         {isOpen && (
           <nav
-            className="border-t border-white/15 bg-blue-900/90 backdrop-blur-lg lg:hidden rounded-b-3xl overflow-hidden"
+            className="border-t border-white/15 bg-[#111111]/90 backdrop-blur-lg lg:hidden rounded-b-3xl overflow-hidden"
             aria-label="Mobile"
           >
             <div className="flex flex-col gap-1 px-6 py-4">

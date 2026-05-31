@@ -49,13 +49,13 @@
 //       )}
 
 //       {/* HEADER CONTROL BAR */}
-//       <div className="sticky top-0 z-40 bg-gradient-to-r from-blue-950 via-slate-900 to-indigo-950 text-white border-b border-blue-900/40 px-4 py-3 shadow-md flex flex-wrap items-center justify-between gap-4">
+//       <div className="sticky top-0 z-40 bg-gradient-to-r from-blue-950 via-slate-900 to-indigo-950 text-white border-b border-[#111111]/40 px-4 py-3 shadow-md flex flex-wrap items-center justify-between gap-4">
 //         <div className="flex items-center gap-3">
 //           <span className="flex items-center gap-1.5 bg-gradient-to-r from-amber-500 to-yellow-400 text-slate-950 text-[10px] font-extrabold tracking-widest uppercase px-2.5 py-1 rounded-full shadow-md animate-pulse">
 //             🇵🇭 DBML COMPLIANT
 //           </span>
 //           <span className="text-xs text-slate-300 hidden xl:inline">
-//             Centralized terminal fee database connected via direct DBQL schema mapping
+//             Centralized terminal fee database connected via direct DB schema mapping
 //           </span>
 //         </div>
         
@@ -135,7 +135,7 @@
 //             <div className="text-center mb-6">
 //               <span className="text-amber-600 font-extrabold tracking-widest uppercase text-[10px] bg-amber-50 px-2 py-1 rounded">Interactive Prototype Demo</span>
 //               <h3 className="text-2xl font-black text-slate-900 mt-2">Book a Calibration Call</h3>
-//               <p className="text-slate-500 text-xs mt-1">Schedule a live compliance and DBQL synchronization audit with our technical engineers.</p>
+//               <p className="text-slate-500 text-xs mt-1">Schedule a live compliance and DB synchronization audit with our technical engineers.</p>
 //             </div>
 
 //             <form onSubmit={(e) => {
@@ -156,7 +156,7 @@
 //                 <input required type="email" placeholder="e.g. m.carpio@mactancebu.gov.ph" className="w-full px-4 py-2.5 rounded-lg border border-slate-200 focus:ring-2 focus:ring-blue-500 outline-none text-xs" />
 //               </div>
 
-//               <button type="submit" className="w-full bg-blue-900 hover:bg-blue-950 text-white font-bold py-3 px-6 rounded-xl transition-all duration-200 shadow-md flex items-center justify-center gap-2 mt-2">
+//               <button type="submit" className="w-full bg-[#111111] hover:bg-blue-950 text-white font-bold py-3 px-6 rounded-xl transition-all duration-200 shadow-md flex items-center justify-center gap-2 mt-2">
 //                 <span>Book Calibration Session</span>
 //               </button>
 //             </form>
