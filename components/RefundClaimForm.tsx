@@ -207,6 +207,7 @@ interface RefundClaimFormProps {
 export default function RefundClaimForm({ showToast, currentAirport }: RefundClaimFormProps) {
   const [step, setStep] = useState(1);
   const [oecInput, setOecInput] = useState("");
+  const [BMOecInput, setBMOecInput] = useState("");
   const [passportInput, setPassportInput] = useState("");
   const [currentOecRecord, setCurrentOecRecord] = useState<typeof MOCK_OECS['OEC-2026-9912'] | null>(null);
   const [validationError, setValidationError] = useState("");
@@ -358,6 +359,7 @@ export default function RefundClaimForm({ showToast, currentAirport }: RefundCla
     
     if (record) {
       setOecInput(record.oec_number);
+      setBMOecInput("e4234234sad");
       setPassportInput(record.passenger.passport_number);
       setCurrentOecRecord(record);
       showToast(`OEC Upload Verified: Registered to ${record.passenger.first_name}`, "success");
@@ -648,6 +650,16 @@ export default function RefundClaimForm({ showToast, currentAirport }: RefundCla
                         placeholder="e.g. OEC-2026-9912"
                         value={oecInput}
                         onChange={(e) => setOecInput(e.target.value)}
+                        className="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 outline-none uppercase font-mono tracking-wider text-xs"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-[10px] font-extrabold uppercase tracking-widest text-slate-600 mb-1">BM EXEMPTION NO</label>
+                      <input
+                        type="text"
+                        placeholder="e.g. OEC-2026-9912"
+                        value={BMOecInput}
+                        onChange={(e) => setBMOecInput(e.target.value)}
                         className="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 outline-none uppercase font-mono tracking-wider text-xs"
                       />
                     </div>
@@ -977,7 +989,7 @@ export default function RefundClaimForm({ showToast, currentAirport }: RefundCla
                   <div className="p-4 bg-amber-500/10 border border-amber-300 rounded-xl flex justify-between items-center">
                     <div>
                       <span className="text-[10px] text-amber-800 font-black block uppercase">Refund Waiver Credit</span>
-                      <strong className="text-2xl font-black text-slate-950 font-mono">₱{currentAirport.default_refund_amount}.00 PHP</strong>
+                      <strong className="text-2xl font-black text-slate-950 font-mono">₱950.00 PHP</strong>
                     </div>
                     <span className="text-[9px] bg-amber-200 text-amber-900 px-2.5 py-1.5 rounded uppercase font-bold tracking-wider">No Fees</span>
                   </div>
@@ -1057,9 +1069,11 @@ export default function RefundClaimForm({ showToast, currentAirport }: RefundCla
 
               <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 text-[11px] font-mono space-y-1.5 text-left max-w-sm mx-auto">
                 <div className="flex justify-between"><span>Passenger:</span> <strong className="text-[#111111]">{currentOecRecord?.passenger.first_name} {currentOecRecord?.passenger.last_name}</strong></div>
+                <div className="flex justify-between"><span>OEC Serial Number:</span> <strong className="text-[#111111]">{oecInput}</strong></div>
+                <div className="flex justify-between"><span>BM EXEMPTION NO:</span> <strong className="text-[#111111]">{BMOecInput}</strong></div>
                 <div className="flex justify-between"><span>Passport Number:</span> <strong className="text-[#111111]">{currentOecRecord?.passenger.passport_number}</strong></div>
                 <div className="flex justify-between"><span>Payout Destination:</span> <strong className="text-[#111111]">{payoutMethod.toUpperCase()}</strong></div>
-                <div className="flex justify-between border-t border-slate-200 pt-1.5 mt-1.5 text-xs"><span className="font-extrabold text-slate-700">Disbursement Amount:</span> <strong className="text-emerald-600 font-bold">₱{currentAirport.default_refund_amount}.00</strong></div>
+                <div className="flex justify-between border-t border-slate-200 pt-1.5 mt-1.5 text-xs"><span className="font-extrabold text-slate-700">Disbursement Amount:</span> <strong className="text-emerald-600 font-bold">₱950.00</strong></div>
               </div>
 
               {payoutMethod === 'voucher' && (
