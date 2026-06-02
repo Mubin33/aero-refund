@@ -794,7 +794,7 @@ export default function FormPage({ showToast = () => {}, currentAirport = MOCK_A
                   <div className="p-4 bg-yellow-50 border border-yellow-300 rounded-lg flex justify-between items-center">
                     <div>
                       <span className="text-[10px] text-yellow-800 font-black uppercase tracking-wider block">IPSC CASH COMPENSATED</span>
-                      <span className="text-2xl font-black text-gray-900 font-mono">₱{currentAirport.default_refund_amount}.00 PHP</span>
+                      <span className="text-2xl font-black text-gray-900 font-mono">₱950.00 PHP</span>
                     </div>
                     <span className="text-[10px] font-bold bg-yellow-200 text-yellow-900 px-2 py-1 rounded">No Coins</span>
                   </div>
@@ -874,7 +874,7 @@ export default function FormPage({ showToast = () => {}, currentAirport = MOCK_A
                 <div className="flex justify-between"><span>Verified Passport:</span> <strong className="text-gray-900">{currentOecRecord?.passenger.passport_number}</strong></div>
                 <div className="flex justify-between"><span>OEC Serial:</span> <strong className="text-gray-900">{currentOecRecord?.oec_number}</strong></div>
                 <div className="flex justify-between"><span>Assigned Gate:</span> <strong className="text-gray-900">{currentAirport.terminal_code}</strong></div>
-                <div className="flex justify-between border-t border-gray-300 pt-1.5 mt-1.5 text-xs"><span className="font-extrabold text-gray-600">Refund Amount (PHP):</span> <strong className="text-[#F2B124] font-bold">₱{currentAirport.default_refund_amount}.00</strong></div>
+                <div className="flex justify-between border-t border-gray-300 pt-1.5 mt-1.5 text-xs"><span className="font-extrabold text-gray-600">Refund Amount (PHP):</span> <strong className="text-[#F2B124] font-bold">₱950.00</strong></div>
               </div>
 
               <div className="flex justify-center">
